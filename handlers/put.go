@@ -29,7 +29,7 @@ func PutUsers(w http.ResponseWriter, r *http.Request) {
 	err = repository.UpdateUser(r.Context(), id, user)
 	if err != nil {
 		log.Println("Error updated  item on  DynamoDB:", err)
-		utils.ResponseInternalError(w, "Erro interno")
+		utils.ResponseInternalError(w, "Error internal")
 		return
 	}
 

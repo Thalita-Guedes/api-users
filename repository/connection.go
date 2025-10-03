@@ -14,13 +14,13 @@ import (
 var Client *dynamodb.Client
 
 func ConnectDynamoDB() {
-	staticProvider := credentials.NewStaticCredentialsProvider(
+	credentials := credentials.NewStaticCredentialsProvider(
 		os.Getenv("AWS_ACCESS_KEY_ID"),
 		os.Getenv("AWS_SECRET_ACCESS_KEY"),
 		"",
 	)
 	awsCfg, err := config.LoadDefaultConfig(context.TODO(),
-		config.WithCredentialsProvider(staticProvider),
+		config.WithCredentialsProvider(credentials),
 		config.WithRegion(os.Getenv("AWS_REGION")),
 	)
 
